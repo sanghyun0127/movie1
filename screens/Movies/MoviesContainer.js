@@ -6,6 +6,7 @@ import MoviesPresenter from "./MoviesPresenter";
 export default () => {
   //useState를 이렇게 만들면 뒤에 setMoives로 rendering을 한 번만 할 수 있음
   const [movies, setMovies] = useState({
+    loading: true,
     nowPlaying: [],
     popular: [],
     upcoming: [],

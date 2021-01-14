@@ -1375,7 +1375,7 @@
   resolved "https://registry.yarnpkg.com/@expo/traveling-fastlane-linux/-/traveling-fastlane-linux-1.15.1.tgz#3b77e3a3d490cbe59fbcffd155068e267c2e95c8"
   integrity sha512-YaFAYYOOxImYNx9s6X3tY6fC1y6rka0KXstrs2zrS+vHyyBD8IOhNtIUvybHScM3jUL+qukgKElAb+7gzlF6Eg==
 
-"@expo/vector-icons@^12.0.0", "@expo/vector-icons@^12.0.2":
+"@expo/vector-icons@^12.0.0":
   version "12.0.2"
   resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-12.0.2.tgz#ffb65a547091abcc529686be21b63ebf4cad041b"
   integrity sha512-VJZDyMvSzgZrIKeytBcxZ7Ll0iBDBAXaVLVR7nMgmhAPERnxdbqUfP6/wrxl6tETzRnG0Xzu9d64jcQRtechlg==
@@ -5556,7 +5556,7 @@ expo-application@~2.4.1:
   resolved "https://registry.yarnpkg.com/expo-application/-/expo-application-2.4.1.tgz#f8eb4a3a05a0b8a8f38f2e981f587a815945b685"
   integrity sha512-VHDvXz55LIYdLoE1aR0AFycB1jz4ggbMToUbKAbCEjro+PdUNm/Gj8gQeFgH6wL2oAztQH4qJ+uiOwrw8SFK+Q==
 
-expo-asset@^8.2.1, expo-asset@~8.2.1:
+expo-asset@~8.2.1:
   version "8.2.1"
   resolved "https://registry.yarnpkg.com/expo-asset/-/expo-asset-8.2.1.tgz#1b69724f29ca4260805f2e6368c4428d8ad90cc6"
   integrity sha512-M97jZU83Gm6wWGkrCwTzDVlufQCmnrCbmW4AMOH6xl3XhwOpgsQ6m6xrwT0Sq1tto7JUuL0tPbB9vb9L7yLfyg==
@@ -5655,7 +5655,7 @@ expo-file-system@~9.3.0:
   dependencies:
     uuid "^3.4.0"
 
-expo-font@^8.4.0, expo-font@~8.4.0:
+expo-font@~8.4.0:
   version "8.4.0"
   resolved "https://registry.yarnpkg.com/expo-font/-/expo-font-8.4.0.tgz#7cb4cc9d852dd8d0977ce425146b94221b40c1d5"
   integrity sha512-CPGcHLUkPP+yf618fiw2bWTFLojIYCCqWonco/JONcM3tsv6wjkafx4Qw1mMCRoFL7XoiBfHylkKnD0avpzQIQ==
@@ -10979,10 +10979,10 @@ react-native-web-swiper@^2.1.7:
   dependencies:
     prop-types "^15.6.2"
 
-react-native-web@^0.14.10:
-  version "0.14.10"
-  resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.14.10.tgz#a4435b00370bb3265c288eacaaa1c9a963537d0d"
-  integrity sha512-YTvYnUUPnOjU50GiXk90cm6atk714vF8p7HhBlqHtLtftHk9xQRwgxXzoMHiKf0Bx20Dyo2SGvv4XrPxcmEheQ==
+react-native-web@~0.13.12:
+  version "0.13.18"
+  resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.13.18.tgz#964f058a16521a3b9a31b091415edfef5b6ef305"
+  integrity sha512-WR/0ECAmwLQ2+2cL2Ur+0/swXFAtcSM0URoADJmG6D4MnY+wGc91JO8LoOTlgY0USBOY+qG/beRrjFa+RAuOiA==
   dependencies:
     array-find-index "^1.0.2"
     create-react-class "^15.6.2"

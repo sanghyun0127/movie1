@@ -5,6 +5,10 @@ import { ActivityIndicator, ScrollView, Dimensions } from "react-native";
 import Slide from "../../components/Movies/Slide";
 import Title from "../../components/Title";
 import Vertical from "../../components/Vertical";
+import Horizontal from "../../components/Horizontal";
+import ScrollContainer from "../../components/ScrollContainer";
+import HorizontalSlider from "../../components/HorizontalSlider";
+import List from "../../components/List";
 
 const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
 
@@ -16,59 +20,51 @@ const SliderContainer = styled.View`
 
 const Container = styled.View``;
 
-export default ({ loading, nowPlaying, popular }) => (
-  <ScrollView
-    style={
-      {
-        //backgroundColor: "black",
-      }
-    }
-    contentContainerStyle={{
-      backgroundColor: "black",
-      flex: 1,
-      justifyContent: loading ? "center" : "flex-start",
-    }}
-  >
-    {loading ? (
-      <ActivityIndicator color="white" size="small" />
-    ) : (
-      <>
-        <SliderContainer>
-          <Swiper controlsEnabled={false} loop timeout={3}>
-            {nowPlaying.map((movie) => (
-              <Slide
-                key={movie.id}
-                id={movie.id}
-                //original_title로 가져오면 해당 언어 그대로 옴 => title로 변경
-                title={movie.title}
-                overview={movie.overview}
-                votes={movie.vote_average}
-                backgroundImage={movie.backdrop_path}
-                poster={movie.poster_path}
-              />
-            ))}
-          </Swiper>
-        </SliderContainer>
-        <Container>
-          <Title title={"Popular Movies"} />
-          <ScrollView
-            style={{ maringTop: 20 }}
-            contentContainerStyle={{ paddingLeft: 30 }}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-          >
-            {popular.map((movie) => (
-              <Vertical
-                key={movie.id}
-                poster={movie.poster_path}
-                //original_title로 가져오면 해당 언어 그대로 옴 => title로 변경
-                title={movie.title}
-                votes={movie.vote_average}
-              />
-            ))}
-          </ScrollView>
-        </Container>
-      </>
-    )}
-  </ScrollView>
+export default ({ loading, nowPlaying, popular, upcoming }) => (
+  <ScrollContainer loading={loading}>
+    <>
+      <SliderContainer>
+        <Swiper controlsEnabled={false} loop timeout={3}>
+          {nowPlaying.map((movie) => (
+            <Slide
+              key={movie.id}
+              id={movie.id}
+              //original_title로 가져오면 해당 언어 그대로 옴 => title로 변경
+              title={movie.title}
+              overview={movie.overview}
+              votes={movie.vote_average}
+              backgroundImage={movie.backdrop_path}
+              poster={movie.poster_path}
+            />
+          ))}
+        </Swiper>
+      </SliderContainer>
+      <Container>
+        <HorizontalSlider title={"Popular Movies"}>
+          {popular.map((movie) => (
+            <Vertical
+              id={movie.id}
+              key={movie.id}
+              poster={movie.poster_path}
+              //original_title로 가져오면 해당 언어 그대로 옴 => title로 변경
+              title={movie.title}
+              votes={movie.vote_average}
+            />
+          ))}
+        </HorizontalSlider>
+        <List title={"Coming Soon"}>
+          {upcoming.map((movie) => (
+            <Horizontal
+              key={movie.id}
+              id={movie.id}
+              title={movie.title}
+              releaseDate={movie.release_date}
+              poster={movie.poster_path}
+              overview={movie.overview}
+            />
+          ))}
+        </List>
+      </Container>
+    </>
+  </ScrollContainer>
 );
