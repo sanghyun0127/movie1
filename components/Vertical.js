@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
-import { apiImage } from "../api";
 import Votes from "./Votes";
 import Poster from "./Poster";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { trimText } from "../utils";
+import { useNavigation } from "@react-navigation/native";
 
 const Container = styled.View`
   align-items: center;
@@ -18,19 +18,32 @@ const Title = styled.Text`
   margin: 10px 0px 5px 0px;
 `;
 
-const Vertical = ({ id, poster, title, votes }) => (
-  <TouchableOpacity>
-    <Container>
-      <Poster url={poster} />
-      <Title>{trimText(title, 10)}</Title>
-      <Votes votes={votes} />
-    </Container>
-  </TouchableOpacity>
-);
+const Vertical = ({ isTv = false, id, poster, title, votes }) => {
+  const navigation = useNavigation();
+  const goToDeatil = () => {
+    navigation.navigate("Detail", {
+      isTv,
+      // Detail에다가 여기서 들어오는 props 를 보낼 수 있음
+      id,
+      title,
+      //poster,
+      votes,
+    });
+  };
+  return (
+    <TouchableOpacity onPress={goToDeatil}>
+      <Container>
+        <Poster url={poster} />
+        <Title>{trimText(title, 10)}</Title>
+        {votes > 0 && <Votes votes={votes} />}
+      </Container>
+    </TouchableOpacity>
+  );
+};
 
 Vertical.propTypes = {
-  id: PropTypes.string.isRequired,
-  poster: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  poster: PropTypes.string,
   title: PropTypes.string.isRequired,
   votes: PropTypes.number.isRequired,
 };

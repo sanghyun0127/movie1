@@ -1,9 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled from "styled-components/native"; //꼭 native에서 불러와야 함!
 
 const TextInput = styled.TextInput`
   background-color: white;
+  margin: 0px 30px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin-bottom: 50px;
 `;
 
 /*
@@ -22,7 +26,7 @@ const Input = ({ placeholder, value, onChange, onSubmit }) => (
     value={value}
     onChangeText={onChange}
     onSubmitEditing={onSubmit}
-    onplaceholder={placeholder}
+    placeholder={placeholder}
     returnKeyType={"search"}
   />
 );

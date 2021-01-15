@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { View, Text, Button } from "react-native";
 import { tvApi } from "../../api";
 import TvPresenter from "./TvPresenter";
 
@@ -40,5 +39,5 @@ export default () => {
     getData();
   }, []);
 
-  return <TvPresenter {...shows} />;
+  return <TvPresenter refreshFn={getData} {...shows} />;
 };

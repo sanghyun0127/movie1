@@ -4,6 +4,7 @@ import Title from "./Title";
 import PropTypes from "prop-types";
 
 const HorizontalSlider = ({ title, children }) => (
+  //Fragment 때문에 <> 대신 View 넣어주는데 현재 버전에서는 딱히 안넣어줘도 되는듯
   <>
     <Title title={title} />
     <ScrollView

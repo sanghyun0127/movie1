@@ -15,12 +15,14 @@ const Container = styled.View`
   margin-top: 30px;
 `;
 
-export default ({ loading, popular, topRated, today }) => (
-  <ScrollContainer loading={loading}>
+export default ({ refreshFn, loading, popular, topRated, today }) => (
+  <ScrollContainer refreshFn={refreshFn} loading={loading}>
     <Container>
       <HorizontalSlider title="Popular TV Shows">
         {popular.map((show) => (
           <Vertical
+            // DeatilContainer에서 isTv={true} 면 TV정보, 아니면 Movie 정보 내보내기
+            isTv={true}
             id={show.id}
             key={show.id}
             poster={show.poster_path}
@@ -33,6 +35,7 @@ export default ({ loading, popular, topRated, today }) => (
       <HorizontalSlider title="Top Rated">
         {topRated.map((show) => (
           <Vertical
+            isTv={true}
             id={show.id}
             key={show.id}
             poster={show.poster_path}
@@ -45,6 +48,7 @@ export default ({ loading, popular, topRated, today }) => (
       <List title="Today">
         {today.map((show) => (
           <Horizontal
+            isTv={true}
             id={show.id}
             key={show.id}
             title={show.name}

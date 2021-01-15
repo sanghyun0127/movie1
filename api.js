@@ -1,4 +1,5 @@
 import axios from "axios";
+
 const TMDB_KEY = "10923b261ba94d897ac6b81148314a3f";
 const makeRequest = (path, params) =>
   axios.get(`https://api.themoviedb.org/3${path}`, {
@@ -36,4 +37,7 @@ export const tvApi = {
   show: (id) => getAnything(`/tv/${id}`),
 };
 
-export const apiImage = (path) => `https://image.tmdb.org/t/p/w500${path}`;
+export const apiImage = (
+  path,
+  defaultPoster = "https://images.unsplash.com/photo-1516085216930-c93a002a8b01?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
+) => (path ? `https://image.tmdb.org/t/p/w500${path}` : defaultPoster);
