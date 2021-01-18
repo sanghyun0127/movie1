@@ -35,6 +35,8 @@ export default ({ movies, shows, keyword, onSubmit, onChange }) => (
       <HorizontalSlider title={"TV results"}>
         {shows.map((show) => (
           <Vertical
+            //isTV 안해주면 search에서 detail 안나옴
+            isTv={true}
             key={show.id}
             id={show.id}
             //original_title로 가져오면 해당 언어 그대로 옴 => title로 변경

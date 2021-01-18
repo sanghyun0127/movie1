@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import PropTypes from "prop-types";
 import Poster from "./Poster";
-import { formateDate, trimText } from "../utils";
+import { formatDate, trimText } from "../utils";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
@@ -39,7 +39,7 @@ const Overview = styled.Text`
 `;
 
 const Horizontal = ({
-  isTV = false,
+  isTv = false,
   id,
   title,
   poster,
@@ -65,7 +65,7 @@ const Horizontal = ({
         <Data>
           <Title>{trimText(title, 15)}</Title>
           {releaseDate ? (
-            <ReleaseDate>{formateDate(releaseDate)}</ReleaseDate>
+            <ReleaseDate>{formatDate(releaseDate)}</ReleaseDate>
           ) : null}
           <Overview>{trimText(overview, 100)}</Overview>
         </Data>
