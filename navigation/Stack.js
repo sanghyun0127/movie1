@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Detail from "../screens/Detail";
 import Tabs from "./Tabs";
 
+//홈화면
 const Stack = createStackNavigator();
 
 export default () => (
@@ -17,7 +18,7 @@ export default () => (
       headerBackTitleVisible: false,
     }}
   >
-    <Stack.Screen name="Tab" component={Tabs} />
+    <Stack.Screen name="Movies" component={Tabs} />
     <Stack.Screen name="Detail" component={Detail} />
   </Stack.Navigator>
 );
