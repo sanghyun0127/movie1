@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { movieApi } from "../../api";
 import FavsPresenter from "./FavsPresenter";
+import { movieApi } from "../../api";
 
 export default () => {
   const [movies, setMovies] = useState({
-    //FavsPresenter 에서 results 로 받았음
     results: [],
-    resultsError: null,
+    error: null,
   });
   const getData = async () => {
-    const [results, resultsError] = await movieApi.discover();
-    // rendering
+    //FavsContainer에서 result로 받음
+    const [results, error] = await movieApi.discover();
     setMovies({
       results,
-      resultsError,
+      error,
     });
   };
   useEffect(() => {
     getData();
   }, []);
-
   return <FavsPresenter {...movies} />;
 };
